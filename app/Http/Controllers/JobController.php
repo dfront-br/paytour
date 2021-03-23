@@ -30,6 +30,6 @@ class JobController extends Controller
         $job->note = $request->note;
         $job->save();
 
-        return redirect('jobs');
+        return redirect('jobs')->with('success', 'Email enviado com sucesso!');
     }
 }

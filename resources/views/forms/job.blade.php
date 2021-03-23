@@ -4,10 +4,13 @@
 
     <div style="margin-top: -80px;"
         class="uk-card uk-card-default uk-card-body uk-border-rounded uk-width-1-1 uk-width-2-3@s uk-width-2-3@m uk-width-2-3@l uk-margin-large-bottom">
-        {{-- <div class="uk-alert-success" uk-alert>
+
+        @if ($message = Session::get('success'))
+        <div class="uk-alert-success uk-border-rounded" uk-alert>
             <a class="uk-alert-close" uk-close></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-        </div> --}}
+            <p>{{ $message }}</p>
+        </div>
+        @endif
         <form action="{{ route('job.send')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="uk-margin">
@@ -74,6 +77,7 @@
                 @enderror
             </div>
             <div class="uk-margin">
+                <label for="" class="uk-form-label">Currículo</label>
                 <div class="uk-inline uk-width-1-1">
                     <span class="uk-form-icon" uk-icon="icon: file-text"></span>
                     <div uk-form-custom="target: true" class="uk-width-1-1">
@@ -89,7 +93,7 @@
             </div>
             <div class="uk-margin">
                 <label for="" class="uk-form-label">Observações</label>
-                <textarea rows="5" class="uk-textarea uk-border-rounded" name="note"
+                <textarea rows="4" class="uk-textarea uk-border-rounded" name="note"
                     placeholder="Fique a vontade para deixar uma observação">{{ old('note') }}</textarea>
             </div>
             <div>

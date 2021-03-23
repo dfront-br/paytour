@@ -35,6 +35,18 @@ class JobRequest extends FormRequest
 
     public function messages()
     {
-        return [];
+        return [
+            'name.required'  => 'O campo nome é obrigatório',
+            'name.min'  => 'O nome precisa ter no minimo :min caracteres',
+            'email.required' => 'O email é obrigatório',
+            'email.email' => 'O email precisa ser um email válido',
+            'phone.required' => 'O telefone é obrigatório',
+            'phone.min'  => 'O telefone precisa ter no minimo :min caracteres',
+            'file.required'  => 'O arquivo é obrigatório',
+            'file.mimes'  => 'O arquivo precisa ser do tipo: doc, docx ou pdf',
+            'file.max'  => 'O tamanho maximo do arquivo 1MB',
+            'occupation.required'  => 'O campo cargo é obrigatório',
+            'educate_id.required'  => 'O campo escolaridade é obrigatório',
+        ];
     }
 }
