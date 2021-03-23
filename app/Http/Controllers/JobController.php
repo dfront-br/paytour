@@ -8,7 +8,7 @@ class JobController extends Controller
 {
     public function index()
     {
-        return 'index';
+        return view('forms.job');
     }
 
     public function store(Request $request)
