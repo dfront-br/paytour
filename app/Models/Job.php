@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 
 class Job extends Model
 {
@@ -22,4 +24,9 @@ class Job extends Model
         'ip_address',
         'send_at'
     ];
+
+    public function educate()
+    {
+        return $this->belongsTo(Education::class);
+    }
 }

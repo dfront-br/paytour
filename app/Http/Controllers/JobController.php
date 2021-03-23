@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobRequest;
+use App\Mail\JobContact;
 use App\Models\Job;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 {
@@ -29,6 +31,8 @@ class JobController extends Controller
         $job->educate_id = $request->educate_id;
         $job->note = $request->note;
         $job->save();
+
+        Mail::send(new JobContact($job));
 
         return redirect('jobs')->with('success', 'Email enviado com sucesso!');
     }
