@@ -20,19 +20,22 @@
             </div>
             <div class="uk-margin">
                 <label for="" class="uk-form-label">Cargo</label>
-                <input type="text" class="uk-input uk-border-rounded" name="" placeholder="Cargo pretendido">
+                <input type="text" class="uk-input uk-border-rounded" name="occupation" placeholder="Cargo pretendido">
             </div>
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-stacked-select">Escolaridade</label>
                 <div class="uk-form-controls">
-                    <select class="uk-select uk-border-rounded">
-                        <option value="">Option 01</option>
+                    <select class="uk-select uk-border-rounded" name="educate_id">
+                        <option disabled selected value="0">--selecione--</option>
+                        @foreach ($education as $ed)
+                        <option value="{{ $ed->id }}">{{ $ed->title }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
             <div class="uk-margin">
                 <div uk-form-custom>
-                    <input type="file">
+                    <input type="file" name="file">
                     <button class="uk-button uk-button-default" type="button" tabindex="-1">Arquivo</button>
                 </div>
             </div>
