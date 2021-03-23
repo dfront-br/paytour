@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/jobs');
+});
+
+Route::prefix('jobs')->group(function () {
+    Route::get('/', [JobController::class, 'index']);
+    Route::post('/', [JobController::class, 'store']);
 });
