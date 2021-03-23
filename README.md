@@ -75,4 +75,4 @@ Acesse a url principal do projeto eserá redirecionado para o formulario de envi
 
 Qualquer dúvida, por favor entre em contato comigo por email thiago.digitalfront@gmail.com
 
-Obrigado pelo oportunidade.
+Obrigado pela oportunidade.
