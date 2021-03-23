@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JobRequest;
 use App\Models\Job;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class JobController extends Controller
@@ -15,13 +15,13 @@ class JobController extends Controller
         return view('forms.job', ['education' => $education]);
     }
 
-    public function store(Request $request)
+    public function store(JobRequest $request)
     {
 
         $job = new Job();
         $job->file = $request->file('file')->store('uploaded-files');;
         $job->ip_address = $request->ip();
-        $job->send_at = Carbon::now();
+        $job->send_at = Carbon::now('America/Sao_Paulo');
         $job->name = $request->name;
         $job->email = $request->email;
         $job->phone = $request->phone;
@@ -30,6 +30,6 @@ class JobController extends Controller
         $job->note = $request->note;
         $job->save();
 
-        return $job;
+        return redirect('jobs');
     }
 }
