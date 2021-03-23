@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::prefix('jobs')->group(function () {
-    Route::get('/', [JobController::class, 'index']);
-    Route::post('/', [JobController::class, 'store']);
+    Route::get('/', [JobController::class, 'index'])->name('job.form');
+    Route::post('/', [JobController::class, 'store'])->name('job.send');
 });
